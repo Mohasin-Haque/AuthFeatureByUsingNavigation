@@ -11,11 +11,8 @@ import Address from "./pages/Address";
 import { NavLink } from "react-router-dom";
 import NotFound from "./pages/404";
 import RequiresAuth from "./components/RequiresAuth";
-import { useAuthContext } from "./contexts/auth-context";
 
 export default function App() {
-  const { isLoggedin, setIsLoggedin } = useAuthContext();
-
   return (
     <div className="App">
       <nav>
@@ -58,11 +55,7 @@ export default function App() {
           to="/address"
         >
           Address
-        </NavLink>{" "}
-        ||
-        <button onClick={() => setIsLoggedin((isLoggedin) => !isLoggedin)}>
-          {isLoggedin ? "logout" : "login"}
-        </button>
+        </NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
